@@ -1,6 +1,8 @@
 ## NoSQL
 # Not only SQL
 
+# MongoDB Atlas pour heberger :)
+
 # Base
 - Fonctionne avec des schémas de données
 - Pas de jointures, on utilise des agrégats
@@ -94,6 +96,40 @@ var METERS_PER_MILE = 1609.34
 db.restaurants.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [ -73.93414657, 40.82302903] }, $maxDistance: 5 * METERS_PER_MILE }}})
 ```
 
+# Authentification
+L'authentification n'est pas fourni pas défaut, on doit le créer nous même.
+
+Pour créer son compte avec mdp:
+```
+use admin
+db.createUser({user: 'root', pwd: passwordPrompt(), roles:['root']})
+```
+Créer le container avec l'image et l'auth:
+```
+docker run -p 27017:27017 -v /mongodb/data/db:/data/db --name mongo -d mongo --auth
+```
+
+Pour se connecter avec l'utilisateur et le mdp:
+```
+docker exec -it mongo mongosh -u root -p root --authenticationDatabase admin
+```
+
+# Replicasets
+Le fameux master / slave 
+
+Créer un network docker:
+```
+docker network create mongo-cluster
+```
+
+Créer les instances Mongo:
+```
+docker run -d --network mongo-cluster -p 27017:27017 --name mongo1 mongo mongod --replSet mongo-set --port 27017
+
+docker run -d --network mongo-cluster -p 27017:27017 --name mongo2 mongo mongod --replSet mongo-set --port 27018
+
+docker run -d --network mongo-cluster -p 27017:27017 --name mongo3 mongo mongod --replSet mongo-set --port 27019
+```
 
 ## Exos
 requete 1 : 
