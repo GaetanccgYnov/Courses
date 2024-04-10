@@ -447,6 +447,10 @@ db.restaurants.aggregate([
 ```
 
 ```
+Quel est le quartier avec la plus haute densité de restaurants par kilomètre carré ?
+
+Pour déterminer la densité de restaurants par kilomètre carré dans chaque quartier, vous auriez besoin de données sur la superficie de chaque quartier ainsi que du nombre de restaurants. Ce calcul peut être effectué en dehors de MongoDB en utilisant les données extraites de votre base de données.
+
 db.neighborhoods.aggregate([
   {
     $lookup: {
@@ -489,71 +493,15 @@ db.neighborhoods.aggregate([
 ```
 
 ```
-db.restaurants.aggregate([
-  {
-    $geoNear: {
-      near: { type: "Point", coordinates: [-73.975, 40.7675] },
-      distanceField: "distance",
-      spherical: true,
-      query: {},
-      maxDistance: 1000000 // Specify a large maxDistance to effectively remove the distance limit
-    }
-  },
-  { $limit: 1 }, // Limit the result to 1 nearest restaurant after $geoNear
-  {
-    $project: {
-      _id: 0,
-      name: 1,
-      cuisine: 1,
-      address: 1,
-      distance: { $round: ["$distance", 2] }
-    }
-  }
-]);
+Comment trouver le restaurant le plus éloigné d'un point donné ?
+
+Pour trouver le restaurant le plus éloigné d'un point donné, vous devez d'abord calculer la distance de ce point à tous les restaurants, puis trier les restaurants par distance pour obtenir celui qui est le plus éloigné. Cependant, cela nécessite des calculs de distance en dehors des capacités standard de MongoDB.
 ```
 
 ```
-// Quartier spécifique (par exemple, "Brooklyn")
-var targetBorough = "Brooklyn";
+Peut-on identifier un chemin (liste de points) passant par au moins 3 restaurants différents sans sortir d'un quartier spécifique ?
 
-// Requête pour trouver les restaurants dans le quartier spécifique
-db.restaurants.aggregate([
-  {
-    $match: {
-      borough: targetBorough // Filtrer par le quartier spécifique
-    }
-  },
-  {
-    $group: {
-      _id: null,
-      restaurants: { $push: "$$ROOT" } // Collecter tous les restaurants dans un tableau
-    }
-  },
-  {
-    $project: {
-      _id: 0,
-      restaurants: 1
-    }
-  }
-]).forEach(function(doc) {
-  var restaurants = doc.restaurants;
-  
-  // Exemple : Implémenter l'algorithme de calcul de chemin (non fourni ici)
-  var optimalPath = findOptimalPath(restaurants);
-
-  print("Optimal path passing through at least 3 different restaurants:", optimalPath);
-});
-
-// Fonction fictive pour illustrer le calcul du chemin optimal
-function findOptimalPath(restaurants) {
-  // Implémenter ici l'algorithme de calcul de chemin pour identifier un chemin optimal
-  // passant par au moins 3 restaurants différents dans le quartier spécifique.
-  // Vous pouvez utiliser des algorithmes comme Dijkstra, A*, etc., pour cette tâche.
-  // Assurez-vous d'utiliser les coordonnées géospatiales des restaurants pour le calcul du chemin.
-  
-  // Exemple : Retourner un chemin factice pour illustrer
-  return ["Restaurant A", "Restaurant B", "Restaurant C"];
-}
+L'identification d'un chemin passant par plusieurs restaurants sans sortir d'un quartier spécifique implique des calculs de chemins géographiques complexes qui dépassent les capacités de MongoDB seul. Cela pourrait nécessiter l'utilisation d'outils spécialisés en géo-analyse.
 ```
 
 ```
