@@ -492,17 +492,15 @@ db.neighborhoods.aggregate([
 ]);
 ```
 
-```
 Comment trouver le restaurant le plus éloigné d'un point donné ?
 
 Pour trouver le restaurant le plus éloigné d'un point donné, vous devez d'abord calculer la distance de ce point à tous les restaurants, puis trier les restaurants par distance pour obtenir celui qui est le plus éloigné. Cependant, cela nécessite des calculs de distance en dehors des capacités standard de MongoDB.
-```
 
-```
+
 Peut-on identifier un chemin (liste de points) passant par au moins 3 restaurants différents sans sortir d'un quartier spécifique ?
 
 L'identification d'un chemin passant par plusieurs restaurants sans sortir d'un quartier spécifique implique des calculs de chemins géographiques complexes qui dépassent les capacités de MongoDB seul. Cela pourrait nécessiter l'utilisation d'outils spécialisés en géo-analyse.
-```
+
 
 ```
 db.neighborhoods.aggregate([
