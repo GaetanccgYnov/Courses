@@ -444,6 +444,7 @@ db.restaurants.aggregate([
     }
   }
 ]);
+```
 
 ```
 db.neighborhoods.aggregate([
