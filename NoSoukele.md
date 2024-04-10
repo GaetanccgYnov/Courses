@@ -449,7 +449,9 @@ db.restaurants.aggregate([
 ```
 Quel est le quartier avec la plus haute densité de restaurants par kilomètre carré ?
 
-Pour déterminer la densité de restaurants par kilomètre carré dans chaque quartier, vous auriez besoin de données sur la superficie de chaque quartier ainsi que du nombre de restaurants. Ce calcul peut être effectué en dehors de MongoDB en utilisant les données extraites de votre base de données.
+Pour déterminer la densité de restaurants par kilomètre carré dans chaque quartier,
+ vous auriez besoin de données sur la superficie de chaque quartier ainsi que du nombre de restaurants. 
+Ce calcul peut être effectué en dehors de MongoDB en utilisant les données extraites de votre base de données.
 
 db.neighborhoods.aggregate([
   {
