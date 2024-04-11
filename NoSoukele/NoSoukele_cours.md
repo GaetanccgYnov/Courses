@@ -155,3 +155,12 @@ db2.users.find()
 
 # Sauvegarde et Restauration
 MONGODUMP / MONGOSTORE
+
+Pour store:
+```
+docker exec -it mongo2 /bin/bash
+mongodump --host localhost --port 27018
+mongodump --dbpath /data/db/ --out /data/backup/
+mongodump --collection COLLECTION -- DB_NAME
+mongostore -h dbhost -d dbname --directoryperdb addressedudump
+```
