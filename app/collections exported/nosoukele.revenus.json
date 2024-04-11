@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "6617ee1ea4ed15cdbc473d6c"
+  },
+  "revenus": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "utilisateur_id": {
+          "type": "string"
+        },
+        "montant": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "catégorie": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "utilisateur_id",
+        "montant",
+        "date",
+        "catégorie"
+      ]
+    }
+  }
+}]

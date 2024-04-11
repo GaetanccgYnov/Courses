@@ -1,0 +1,42 @@
+[{
+  "_id": {
+    "$oid": "6617ee31a4ed15cdbc473d72"
+  },
+  "dépenses": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "utilisateur_id": {
+          "type": "string"
+        },
+        "montant": {
+          "type": "number"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "catégorie": {
+          "type": "string"
+        },
+        "sous-catégorie": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "_id",
+        "utilisateur_id",
+        "montant",
+        "date",
+        "catégorie"
+      ]
+    }
+  }
+}]

@@ -1,0 +1,25 @@
+{
+"utilisateurs": {
+    "type": "array",
+    "items": {
+    "type": "object",
+    "properties": {
+        "_id": { "type": "string" },
+        "nom": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "mot_de_passe": { "type": "string" },
+        "date_inscription": { "type": "string", "format": "date" },
+        "preferences": {
+        "type": "object",
+        "properties": {
+            "devise": { "type": "string" },
+            "langue": { "type": "string" }
+        },
+        "required": ["devise", "langue"]
+        }
+    },
+    "required": ["_id", "nom", "email", "mot_de_passe", "date_inscription", "preferences"]
+    }
+}
+}
+  

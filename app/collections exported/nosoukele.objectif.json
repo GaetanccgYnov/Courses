@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "6617ee29a4ed15cdbc473d70"
+  },
+  "objectifs_financiers": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "string"
+      },
+      "utilisateur_id": {
+        "type": "string"
+      },
+      "mois": {
+        "type": "string"
+      },
+      "catégorie": {
+        "type": "string"
+      },
+      "montant": {
+        "type": "number"
+      },
+      "type": {
+        "type": "string"
+      }
+    }
+  }
+}]
