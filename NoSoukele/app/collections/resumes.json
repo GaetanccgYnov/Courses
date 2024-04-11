@@ -1,0 +1,37 @@
+{
+    "résumés_mensuels": {
+      "type": "object",
+      "properties": {
+        "_id": { "type": "string" },
+        "utilisateur_id": { "type": "string" },
+        "mois": { "type": "string" },
+        "revenus": {
+          "type": "object",
+          "properties": {
+            "total": { "type": "number" },
+            "par_catégorie": {
+              "type": "object",
+              "properties": {
+                "Salaire": { "type": "number" },
+                "Remboursement": { "type": "number" }
+              }
+            }
+          }
+        },
+        "dépenses": {
+          "type": "object",
+          "properties": {
+            "total": { "type": "number" },
+            "par_catégorie": {
+              "type": "object",
+              "properties": {
+                "Alimentation": { "type": "number" },
+                "Transport": { "type": "number" }
+              }
+            }
+          }
+        },
+        "solde": { "type": "number" }
+      }
+    }
+  }

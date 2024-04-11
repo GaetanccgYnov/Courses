@@ -1,0 +1,114 @@
+{
+  "utilisateurs": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "_id": { "type": "string" },
+        "nom": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "mot_de_passe": { "type": "string" },
+        "date_inscription": { "type": "string", "format": "date" },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "devise": { "type": "string" },
+            "langue": { "type": "string" }
+          },
+          "required": ["devise", "langue"]
+        }
+      },
+      "required": ["_id", "nom", "email", "mot_de_passe", "date_inscription", "preferences"]
+    }
+  }
+}
+
+{
+  "revenus": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "_id": { "type": "string" },
+        "utilisateur_id": { "type": "string" },
+        "montant": { "type": "number" },
+        "date": { "type": "string", "format": "date" },
+        "catégorie": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["_id", "utilisateur_id", "montant", "date", "catégorie"]
+    }
+  }
+}
+
+{
+  "dépenses": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "_id": { "type": "string" },
+        "utilisateur_id": { "type": "string" },
+        "montant": { "type": "number" },
+        "date": { "type": "string", "format": "date" },
+        "catégorie": { "type": "string" },
+        "sous-catégorie": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["_id", "utilisateur_id", "montant", "date", "catégorie"]
+    }
+  }
+}
+
+{
+  "résumés_mensuels": {
+    "type": "object",
+    "properties": {
+      "_id": { "type": "string" },
+      "utilisateur_id": { "type": "string" },
+      "mois": { "type": "string" },
+      "revenus": {
+        "type": "object",
+        "properties": {
+          "total": { "type": "number" },
+          "par_catégorie": {
+            "type": "object",
+            "properties": {
+              "Salaire": { "type": "number" },
+              "Remboursement": { "type": "number" }
+            }
+          }
+        }
+      },
+      "dépenses": {
+        "type": "object",
+        "properties": {
+          "total": { "type": "number" },
+          "par_catégorie": {
+            "type": "object",
+            "properties": {
+              "Alimentation": { "type": "number" },
+              "Transport": { "type": "number" }
+            }
+          }
+        }
+      },
+      "solde": { "type": "number" }
+    }
+  }
+}
+
+{
+  "objectifs_financiers": {
+    "type": "object",
+    "properties": {
+      "_id": { "type": "string" },
+      "utilisateur_id": { "type": "string" },
+      "mois": { "type": "string" },
+      "catégorie": { "type": "string" },
+      "montant": { "type": "number" },
+      "type": { "type": "string" }
+    }
+  }
+}
+  
