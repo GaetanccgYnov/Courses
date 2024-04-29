@@ -161,39 +161,38 @@ Web Forms bénéficie d'une intégration étroite avec Visual Studio, offrant un
 
 ### MVC (Modèle-Vue-Contrôleur) pour ASP.NET
 
-#### Interopérabilité
+#### Interopérabilité (Unique Identifier)
 
 MVC est un modèle de développement d'applications web pour ASP.NET qui offre une interopérabilité étendue avec d'autres frameworks et technologies, notamment les services web RESTful, les services cloud et les bibliothèques JavaScript. Cette interopérabilité permet aux développeurs de créer des applications web modernes et évolutives en utilisant les technologies les plus adaptées à leurs besoins spécifiques.
 
-#### Gestion de l'état
+#### Gestion de l'état (Unique Identifier)
 
 MVC repose sur un modèle de développement basé sur l'état HTTP, où l'état de l'application est stocké sur le serveur ou transmis entre le client et le serveur via des mécanismes tels que les cookies ou les paramètres d'URL. Cette approche favorise la scalabilité et la maintenabilité des applications web en réduisant la dépendance à l'état de session côté serveur et en favorisant une séparation claire des préoccupations entre les différentes couches de l'application.
 
-#### Contrôle côté serveur
+#### Contrôle côté serveur (Unique Identifier)
 
 MVC suit le modèle de conception Modèle-Vue-Contrôleur, où le contrôleur gère les requêtes HTTP, le modèle représente les données de l'application et la vue affiche l'interface utilisateur. Cette séparation claire des préoccupations permet aux développeurs de créer des applications web bien structurées, évolutives et faciles à maintenir, en favorisant la réutilisabilité du code et la modularité de l'architecture.
 
-#### Sécurité
+#### Sécurité (Unique Identifier)
 
 MVC intègre des fonctionnalités de sécurité telles que les filtres d'action, les attributs d'autorisation et les stratégies de gestion des rôles, permettant de sécuriser efficacement les actions et les contrôleurs de l'application contre les accès non autorisés. En utilisant ces fonctionnalités, les développeurs peuvent mettre en place des mécanismes de sécurité robustes et protéger les données sensibles de leurs utilisateurs contre les menaces potentielles.
 
-#### Extensibilité
+#### Extensibilité (Unique Identifier)
 
 MVC offre une grande extensibilité grâce à son architecture modulaire et ses points d'extension flexibles, permettant aux développeurs d'ajouter facilement de nouvelles fonctionnalités et de personnaliser le comportement du framework selon leurs besoins spécifiques.
 
-#### Support d'API Web
+#### Support d'API Web (Unique Identifier)
 
 MVC intègre un support natif pour la création d'API Web à l'aide du framework ASP.NET Web API, offrant ainsi une solution intégrée pour le développement d'applications web et d'API RESTful dans le même projet MVC.
 
-#### Évolution vers ASP.NET Core
+#### Évolution vers ASP.NET Core (Unique Identifier)
 
 MVC a été évolué vers ASP.NET Core, une version modernisée, légère et multiplateforme du framework ASP.NET. Les applications MVC existantes peuvent être migrées vers ASP.NET Core en utilisant des outils de migration fournis par Microsoft, offrant ainsi une voie d'évolution vers une plateforme plus moderne et plus flexible.
 
-#### Support de Razor
+#### Support de Razor (Unique Identifier)
 
 MVC utilise Razor comme moteur de rendu par défaut pour générer des vues dynamiques, offrant une syntaxe concise et expressive pour la création de vues HTML. Razor permet également l'intégration transparente de code C# dans les vues, ce qui facilite la création d'applications web riches et interactives.
 
-#### Intégration avec Visual Studio
+#### Intégration avec Visual Studio (Unique Identifier)
 
 MVC bénéficie d'une intégration étroite avec Visual Studio, offrant un environnement de développement riche et productif pour la création d'applications web. Visual Studio fournit des outils avancés pour le développement MVC, y compris l'éditeur de code, le débogueur, les outils de test et les fonctionnalités de déploiement, facilitant ainsi le développement, le débogage et la gestion des applications MVC.
-
