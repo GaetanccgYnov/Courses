@@ -30,22 +30,12 @@ public class Program
 }
 ```
 
-2) Méthodes LINQ :
+2) Les méthodes LINQ mentionnées correspondent à :
 
-```csharp
-using System;
-using System.Linq;
-
-public class Program
-{
-    public static void Main()
-    {
-        // Votre code LINQ ici
-
-        Console.WriteLine("Vos résultats ici");
-    }
-}
-```
+- `FirstOrDefault()`: Renvoie le premier élément d'une séquence ou la valeur par défaut si la séquence est vide.
+- `LastOrDefault()`: Renvoie le dernier élément d'une séquence ou la valeur par défaut si la séquence est vide.
+- `ElementAt(int index)`: Renvoie l'élément à la position spécifiée dans une séquence.
+- `ElementAtOrDefault(int index)`: Renvoie l'élément à la position spécifiée dans une séquence ou la valeur par défaut si l'index est hors limites.
 
 3) Informations communes dans deux tableaux :
 
@@ -57,11 +47,14 @@ public class Program
 {
     public static void Main()
     {
+        // Déclaration des deux tableaux d'entiers
         int[] premiers = { 2, 3, 5, 7, 11 };
         int[] impairs = { 1, 3, 5, 7, 9, 11 };
 
+        // Utilisation de Join pour trouver les valeurs communes entre les deux tableaux
         var infosCommunes = premiers.Join(impairs, p => p, i => i, (p, i) => new { Premier = p, Impair = i }).ToList();
 
+        // Affichage des informations communes
         foreach (var info in infosCommunes)
         {
             Console.WriteLine($"Premier : {info.Premier}, Impair : {info.Impair}");
@@ -80,42 +73,44 @@ public class Program
 {
     public static void Main()
     {
+        // Déclaration de deux tableaux d'entiers
         int[] premiers = { 2, 3, 5, 7, 11 };
         int[] impairs = { 1, 3, 5, 7, 9, 11 };
 
-        // Concatenation
+        // Concaténation des deux tableaux
         Console.WriteLine("----------");
-        var concat = premiers.Concat(impairs);
+        var concat = premiers.Concat(impairs); // Concaténation
         foreach (int nb in concat)
         {
-            Console.WriteLine(nb);
+            Console.WriteLine(nb); // Affichage des nombres concaténés
         }
 
-        // Intersection
+        // Intersection des deux tableaux
         Console.WriteLine("----------");
-        var intersect = premiers.Intersect(impairs);
+        var intersect = premiers.Intersect(impairs); // Intersection
         foreach (int nb in intersect)
         {
-            Console.WriteLine(nb);
+            Console.WriteLine(nb); // Affichage des nombres communs
         }
 
-        // Différence
+        // Différence entre les deux tableaux
         Console.WriteLine("----------");
-        var except = premiers.Except(impairs);
-        var exceptBis = impairs.Except(premiers);
+        var except = premiers.Except(impairs); // Différence (premiers - impairs)
+        var exceptBis = impairs.Except(premiers); // Différence (impairs - premiers)
         foreach (int nb in except)
         {
-            Console.WriteLine(nb);
+            Console.WriteLine(nb); // Affichage des nombres présents uniquement dans premiers
         }
     }
 }
 ```
 
-5) Création de clients :
+5) Création de clients avec nom, mail et budget :
 
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Client
 {
@@ -147,15 +142,17 @@ public class Program
             new Client(6, "Zoe", 50000, "Zoe@mail.fr"),
         };
 
-        // Votre code ici
+        // Utilisation de LINQ pour sélectionner les clients avec le nom, le budget et le mail
+        var clientsAvecNomMailBudget = clients.Select(c => new { Nom = c.Nom, Budget = c.Budget, Mail = c.Mail }).ToList();
 
         Console.WriteLine("Clients sélectionnés :");
-        foreach (var client in clientsAvecBudget)
+        foreach (var client in clientsAvecNomMailBudget)
         {
-            Console.WriteLine($"ID : {client.Id}, Nom : {client.Nom}, Budget : {client.Budget}, Mail : {client.Mail}");
+            Console.WriteLine($"Nom : {client.Nom}, Budget : {client.Budget}, Mail : {client.Mail}");
         }
     }
 }
+
 ```
 
 6) Sélection de clients avec un budget défini :
@@ -196,6 +193,8 @@ public class Program
         };
 
         double budgetRecherche = 10000;
+
+        // Utilisation de LINQ pour sélectionner les clients avec le budget recherché
         var clientsAvecBudget = clients.Where(c => c.Budget == budgetRecherche).ToList();
 
         Console.WriteLine("Clients sélectionnés :");
