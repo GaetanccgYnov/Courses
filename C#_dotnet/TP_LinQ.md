@@ -1,59 +1,122 @@
 # Réponses TP LinQ
 
-1) Pour récupérer les nombres pairs dans un tableau et les nombres impairs dans un autre, vous pouvez utiliser LINQ de la manière suivante :
+1) Réponses TP LinQ :
 
 ```csharp
-int[] nombres = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+using System;
+using System.Linq;
 
-var nombresPairs = nombres.Where(n => n % 2 == 0).ToArray();
-var nombresImpairs = nombres.Where(n => n % 2 != 0).ToArray();
-```
-
-2) Les méthodes LINQ mentionnées correspondent à :
-
-- `FirstOrDefault()`: Renvoie le premier élément d'une séquence ou la valeur par défaut si la séquence est vide.
-- `LastOrDefault()`: Renvoie le dernier élément d'une séquence ou la valeur par défaut si la séquence est vide.
-- `ElementAt(int index)`: Renvoie l'élément à la position spécifiée dans une séquence.
-- `ElementAtOrDefault(int index)`: Renvoie l'élément à la position spécifiée dans une séquence ou la valeur par défaut si l'index est hors limites.
-
-3) Pour récupérer les informations des deux tableaux où les informations se trouvent dans les deux tableaux, vous pouvez utiliser la méthode `Join` de LINQ :
-
-```csharp
-var infosCommunes = premiers.Join(impairs, p => p, i => i, (p, i) => new { Premier = p, Impair = i }).ToList();
-```
-
-4) Pour les différentes opérations (concaténation, intersection et différence), vous pouvez les tester comme suit :
-
-```csharp
-// Concatenation
-Console.WriteLine("----------");
-var concat = premiers.Concat(impairs);
-foreach (int nb in concat)
+public class Program
 {
-    Console.WriteLine(nb);
-}
+    public static void Main()
+    {
+        int[] nombres = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-// Intersection
-Console.WriteLine("----------");
-var intersect = premiers.Intersect(impairs);
-foreach (int nb in intersect)
-{
-    Console.WriteLine(nb);
-}
+        var nombresPairs = nombres.Where(n => n % 2 == 0).ToArray();
+        var nombresImpairs = nombres.Where(n => n % 2 != 0).ToArray();
 
-// Différence
-Console.WriteLine("----------");
-var except = premiers.Except(impairs);
-var exceptBis = impairs.Except(premiers);
-foreach (int nb in except)
-{
-    Console.WriteLine(nb);
+        Console.WriteLine("Nombres pairs :");
+        foreach (var nombre in nombresPairs)
+        {
+            Console.WriteLine(nombre);
+        }
+
+        Console.WriteLine("Nombres impairs :");
+        foreach (var nombre in nombresImpairs)
+        {
+            Console.WriteLine(nombre);
+        }
+    }
 }
 ```
 
-5) Pour créer un client avec un nom, budget et mail, vous pouvez définir une classe Client et une liste de clients comme suit :
+2) Méthodes LINQ :
 
 ```csharp
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static void Main()
+    {
+        // Votre code LINQ ici
+
+        Console.WriteLine("Vos résultats ici");
+    }
+}
+```
+
+3) Informations communes dans deux tableaux :
+
+```csharp
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static void Main()
+    {
+        int[] premiers = { 2, 3, 5, 7, 11 };
+        int[] impairs = { 1, 3, 5, 7, 9, 11 };
+
+        var infosCommunes = premiers.Join(impairs, p => p, i => i, (p, i) => new { Premier = p, Impair = i }).ToList();
+
+        foreach (var info in infosCommunes)
+        {
+            Console.WriteLine($"Premier : {info.Premier}, Impair : {info.Impair}");
+        }
+    }
+}
+```
+
+4) Opérations sur les tableaux :
+
+```csharp
+using System;
+using System.Linq;
+
+public class Program
+{
+    public static void Main()
+    {
+        int[] premiers = { 2, 3, 5, 7, 11 };
+        int[] impairs = { 1, 3, 5, 7, 9, 11 };
+
+        // Concatenation
+        Console.WriteLine("----------");
+        var concat = premiers.Concat(impairs);
+        foreach (int nb in concat)
+        {
+            Console.WriteLine(nb);
+        }
+
+        // Intersection
+        Console.WriteLine("----------");
+        var intersect = premiers.Intersect(impairs);
+        foreach (int nb in intersect)
+        {
+            Console.WriteLine(nb);
+        }
+
+        // Différence
+        Console.WriteLine("----------");
+        var except = premiers.Except(impairs);
+        var exceptBis = impairs.Except(premiers);
+        foreach (int nb in except)
+        {
+            Console.WriteLine(nb);
+        }
+    }
+}
+```
+
+5) Création de clients :
+
+```csharp
+using System;
+using System.Collections.Generic;
+
 public class Client
 {
     public int Id { get; set; }
@@ -70,20 +133,76 @@ public class Client
     }
 }
 
-public static List<Client> clients = new List<Client>()
+public class Program
 {
-    new Client(1, "Anthony", 10000, "Anthony@mail.fr"),
-    new Client(2, "Jean", 5000, "Jean@mail.fr"),
-    new Client(3, "Marc", 15000, "Marc@mail.fr"),
-    new Client(4, "John", 20000, "John@mail.fr"),
-    new Client(5, "Lea", 100000, "Lea@mail.fr"),
-    new Client(6, "Zoe", 50000, "Zoe@mail.fr"),
-};
+    public static void Main()
+    {
+        List<Client> clients = new List<Client>()
+        {
+            new Client(1, "Anthony", 10000, "Anthony@mail.fr"),
+            new Client(2, "Jean", 5000, "Jean@mail.fr"),
+            new Client(3, "Marc", 15000, "Marc@mail.fr"),
+            new Client(4, "John", 20000, "John@mail.fr"),
+            new Client(5, "Lea", 100000, "Lea@mail.fr"),
+            new Client(6, "Zoe", 50000, "Zoe@mail.fr"),
+        };
+
+        // Votre code ici
+
+        Console.WriteLine("Clients sélectionnés :");
+        foreach (var client in clientsAvecBudget)
+        {
+            Console.WriteLine($"ID : {client.Id}, Nom : {client.Nom}, Budget : {client.Budget}, Mail : {client.Mail}");
+        }
+    }
+}
 ```
 
-6) Pour sélectionner tous les clients avec un budget défini, vous pouvez utiliser LINQ comme ceci :
+6) Sélection de clients avec un budget défini :
 
 ```csharp
-double budgetRecherche = 10000;
-var clientsAvecBudget = clients.Where(c => c.Budget == budgetRecherche).ToList();
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Client
+{
+    public int Id { get; set; }
+    public string Nom { get; set; }
+    public double Budget { get; set; }
+    public string Mail { get; set; }
+
+    public Client(int id, string nom, double budget, string mail)
+    {
+        Id = id;
+        Nom = nom;
+        Budget = budget;
+        Mail = mail;
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        List<Client> clients = new List<Client>()
+        {
+            new Client(1, "Anthony", 10000, "Anthony@mail.fr"),
+            new Client(2, "Jean", 5000, "Jean@mail.fr"),
+            new Client(3, "Marc", 15000, "Marc@mail.fr"),
+            new Client(4, "John", 20000, "John@mail.fr"),
+            new Client(5, "Lea", 100000, "Lea@mail.fr"),
+            new Client(6, "Zoe", 50000, "Zoe@mail.fr"),
+        };
+
+        double budgetRecherche = 10000;
+        var clientsAvecBudget = clients.Where(c => c.Budget == budgetRecherche).ToList();
+
+        Console.WriteLine("Clients sélectionnés :");
+        foreach (var client in clientsAvecBudget)
+        {
+            Console.WriteLine($"ID : {client.Id}, Nom : {client.Nom}, Budget : {client.Budget}, Mail : {client.Mail}");
+        }
+    }
+}
 ```
