@@ -196,3 +196,55 @@ MVC utilise Razor comme moteur de rendu par défaut pour générer des vues dyna
 #### Intégration avec Visual Studio (Unique Identifier)
 
 MVC bénéficie d'une intégration étroite avec Visual Studio, offrant un environnement de développement riche et productif pour la création d'applications web. Visual Studio fournit des outils avancés pour le développement MVC, y compris l'éditeur de code, le débogueur, les outils de test et les fonctionnalités de déploiement, facilitant ainsi le développement, le débogage et la gestion des applications MVC.
+
+
+# CONNEXION A UN SGBD
+
+```
+using System;
+using System.Data.SqlClient;
+
+namespace YourNamespace
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string connectionString = "Data Source=YourServer;Initial Catalog=YourDatabase;User ID=YourUsername;Password=YourPassword";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    Console.WriteLine("Connection successful!");
+
+                    // Perform database operations here
+
+                    // Example: Execute a query
+                    string query = "SELECT * FROM YourTable";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Access data from the reader
+                                int id = reader.GetInt32(0);
+                                string name = reader.GetString(1);
+                                // ...
+                            }
+                        }
+                    }
+
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+    }
+}
+```
