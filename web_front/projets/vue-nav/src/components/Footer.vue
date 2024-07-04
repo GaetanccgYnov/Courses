@@ -2,8 +2,8 @@
   <footer>Made with 💜 by Réré</footer>
 </template>
 
-<script>
-export default {
-  name: 'Footer'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps()
 </script>

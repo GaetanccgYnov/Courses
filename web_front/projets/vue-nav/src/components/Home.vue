@@ -6,8 +6,8 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'Home'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps()
 </script>

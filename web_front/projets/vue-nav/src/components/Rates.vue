@@ -52,8 +52,10 @@
   </main>
 </template>
 
-<script>
-export default {
-  name: 'Rates'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  msg: String
+})
 </script>

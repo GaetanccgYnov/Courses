@@ -16,15 +16,27 @@
   </main>
 </template>
 
-<script>
-import {teams} from "@/assets/js/appTeams.js";
+<script setup>
+import { ref } from 'vue'
 
-export default {
-  name: 'Team',
-  data() {
-    return {
-      team: teams
-    }
+const team = ref([
+  {
+    firstName: 'John',
+    jobTitle: 'CEO',
+    profilePic: '/profil01.jpg',
+    verbatim: 'John is the CEO of our company. He is a great leader and has a vision for the future.'
+  },
+  {
+    firstName: 'Jane',
+    jobTitle: 'CTO',
+    profilePic: '/profil02.jpg',
+    verbatim: 'Jane is the CTO of our company. She is a great leader and has a vision for the future.'
+  },
+  {
+    firstName: 'Doe',
+    jobTitle: 'CFO',
+    profilePic: '/profil03.jpg',
+    verbatim: 'Doe is the CFO of our company. He is a great leader and has a vision for the future.'
   }
-}
+])
 </script>

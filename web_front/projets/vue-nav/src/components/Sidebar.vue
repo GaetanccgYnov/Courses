@@ -2,8 +2,10 @@
   <aside>Sidebar</aside>
 </template>
 
-<script>
-export default {
-  name: 'Sidebar'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  msg: String
+})
 </script>

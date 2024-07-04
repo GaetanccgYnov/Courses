@@ -2,8 +2,8 @@
   <header>Un Header</header>
 </template>
 
-<script>
-export default {
-  name: 'Header'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps()
 </script>

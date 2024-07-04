@@ -45,8 +45,8 @@
   </main>
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
   name: 'Testimonials'
-}
+})
 </script>

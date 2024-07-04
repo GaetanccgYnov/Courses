@@ -9,8 +9,8 @@
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Nav'
-}
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps()
 </script>
